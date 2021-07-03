@@ -85,7 +85,7 @@ function generate_option_html(index_id, db_size)
 		if(j>db_size)
 			break;
 		else
-			str_option += "<option value='" + j + "'>" + animals[j] +"</option>";
+			str_option += "<option value='" + j + "'>" + "("+j+")" + animals[j] +"</option>";
 	}
 	
 	if(str_option == "")
