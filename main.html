@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>魔力寶貝初心圖鑑輸出功能</title>
+		<link rel="stylesheet" href="css/single.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script type="text/javascript" src="js/jquery-3.6.0.js"></script>  
+		<script type="text/javascript" src="js/jquery-ui.js"></script>  
+		<script type="text/javascript" src="js/db_variable.js"></script>  
+		<script type="text/javascript" src="js/utils.js"></script>  
+		
+		<script>
+			const mobileScreen = window.matchMedia("(max-width: 990px )");
+			$(document).ready(function () {
+				BindMenuClickEvent();
+				BindButtonClickEvent();
+				update_page_select();
+			});
+		</script>
+   </head>
+   <body>
+      <div class='dashboard'>
+         <div class="dashboard-nav">
+            <header>
+				<a href="https://cg.originmood.com/" target="_blank" class="brand-logo"><span>魔力寶貝：永恆初心</span></a>
+            </header>
+            <nav class="dashboard-nav-list">
+				<a href="#" id="id_menu1" class="dashboard-nav-item">遊戲簡介 </a>
+				<a href="#" id="id_menu2" class="dashboard-nav-item active"> 圖鑑選擇</a>
+				<div class="nav-item-divider"></div>
+				<a href="#" id="id_menu3" class="dashboard-nav-item">製作者資訊 </a>
+				
+            </nav>
+         </div>
+		 
+         <div id="id_introduce" class='dashboard-app' style="display:none">
+			<div class='card'>
+				<div class='card-header'>
+					<h1>遊戲簡介</h1>
+				</div>
+				<div class='card-body'>
+					<p>《魔力寶貝：永恆初心》是日本史克威爾艾尼克斯出品，初心網絡科技與大宇資訊為臺灣、香港以及澳門地區的玩家共同推出的官方繁體中文版本網路遊戲。</p>
+					<p>2021年2月26日發布推出的消息，固定於臺灣時間的星期四上午10:00至12:00進行兩小時伺服器維護作業</p>
+				</div>
+				<div class='card-body'>
+					<img src="https://files.originmood.com/pic/a3122aabeefce724a4757528d3439dd0/picture/db831cb5fdef0d77d39a4291565e5541.png">
+				</div>
+				<div class='card-body'>
+					<img src="https://files.originmood.com/pic/a3122aabeefce724a4757528d3439dd0/picture/b402dd80d568833778dd9868f8675c4d.png">
+				</div>
+				<div class='card-body'>
+					<img src="https://files.originmood.com/pic/a3122aabeefce724a4757528d3439dd0/picture/03c49a24ee7964691cd5255b036077d0.png">
+				</div>
+				<div class='card-body'>
+					<img src="https://files.originmood.com/pic/a3122aabeefce724a4757528d3439dd0/picture/8b79040528373ded5c5c4095d08fe26c.png">
+				</div>
+				<div class='card-body'>
+					<img src="https://files.originmood.com/pic/a3122aabeefce724a4757528d3439dd0/picture/e20a030d8b037a1258b62e0b6c663c1d.png">
+				</div>
+				<div class='card-body'>
+					<img src="https://files.originmood.com/pic/a3122aabeefce724a4757528d3439dd0/picture/f9f6701d1307800b4d86228165e18d2c.png">
+				</div>
+			</div>
+         </div> 
+		 
+		 <div id="id_categrory" class='dashboard-app'>
+			  <div class='card'>
+				 <div class='card-header'>
+					<h1>圖鑑選擇</h1>
+				 </div>
+				 <div class='card-body'>
+					<p>請透過下拉選單(CTRL+滑鼠左鍵；或者滑鼠左鍵按住拖曳)你想要產生的寵物圖鑑需求清單</p>
+					<p>如果想取消單一選擇，可以對已選擇項目再用一次CTRL+滑鼠左鍵即可</p>
+					<input id="id_clear" type="button" value="清除選擇">
+					<input id="id_generate" type="button" value="產生清單">
+				 </div>
+				 
+				<div id="id_main_option" class='card-body'>
+					<!--following is fake data-->
+					<span id="id_option1_text"> 1 - 10 </span>
+					<select id="id_option1" class="form-select" aria-label="Default select example">
+						<option selected>Open this select menu</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
+				</div>
+			  </div>
+         </div>
+		 
+		 <div id="contribution" class='dashboard-app' style="display:none">
+			<div class='card'>
+				<div class='card-header'>
+					<h1>相關資訊</h1>
+				</div>
+				<div class='card-body'>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Reference/Tool Website</th>
+								<th scope="col">Comment</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">1</th>
+								<td><a href="https://codepen.io/corbpie/pen/LYNwGdE" target="_blank">https://codepen.io/corbpie/pen/LYNwGdE</a></td>
+								<td>main html and css</td>
+							</tr>
+							<tr>
+								<th scope="row">2</th>
+								<td><a href="http://jsonviewer.stack.hu" target="_blank">http://jsonviewer.stack.hu</a></td>
+								<td>clear the space and break line for the data</td>
+							</tr>
+							<tr>
+								<th scope="row">3</th>
+								<td><a href="https://awk.js.org/" target="_blank">https://awk.js.org/</a></td>
+								<td>linux awk online tool, prune out the useless data</td>
+							</tr>
+							<tr>
+								<th scope="row">4</th>
+								<td><a href="https://wiki2.gamer.com.tw/wiki.php?n=3128:%E5%AF%B5%E7%89%A9%E5%9C%96%E9%91%91&ss=3128&f=M" target="_blank">https://wiki2.gamer.com.tw/wiki.php?n=3128:%E5%AF%B5%E7%89%A9%E5%9C%96%E9%91%91&ss=3128&f=M</a></td>
+								<td>source data for the crossgate</td>
+							</tr>
+							<tr>
+								<th scope="row">5</th>
+								<td><a href="https://zh.wikipedia.org/wiki/%E9%AD%94%E5%8A%9B%E5%AF%B6%E8%B2%9D%EF%BC%9A%E6%B0%B8%E6%81%86%E5%88%9D%E5%BF%83" target="_blank">https://zh.wikipedia.org/wiki/%E9%AD%94%E5%8A%9B%E5%AF%B6%E8%B2%9D%EF%BC%9A%E6%B0%B8%E6%81%86%E5%88%9D%E5%BF%83</a></td>
+								<td>wiki page description for crossgate</td>
+							</tr>
+							<tr>
+								<th scope="row">6</th>
+								<td><a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/</a></td>
+								<td>opensource bootstrap</td>
+							</tr>
+							<tr>
+								<th scope="row">7</th>
+								<td><a href="https://jquery.com/" target="_blank">https://jquery.com/</a></td>
+								<td>opensource jQuery</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+         </div>
+		 
+		<div id="id_dialog" title="輸出清單">
+			<p>123456789456321456789</p>
+		</div>
+      </div>
+   </body>
+</html>
